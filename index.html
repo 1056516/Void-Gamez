@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID Games</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #111;
+        }
+
+        header h1 {
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .game-card {
+            background: #333;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            background: #444;
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background: #111;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #444;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: #666;
+        }
+
+        #game-view {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #game-view iframe {
+            border: 2px solid #fff;
+            border-radius: 12px;
+            width: 80%;
+            height: 500px;
+        }
+
+        #game-list {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>VOID</h1>
+    <nav>
+        <button onclick="showHomePage()">Refresh</button>
+        <button onclick="showAllGames()">More Games</button>
+    </nav>
+</header>
+
+<div id="game-list">
+    <div class="grid">
+        <div class="game-card" onclick="playGame('https://roblox.com')">
+            <img src="https://cdn2.unrealengine.com/ch6s1-ka-4k-1920x1080-2472c8cc9f21.jpg" alt="Game 1">
+        </div>
+        <div class="game-card" onclick="playGame('game2.html')">
+            <img src="/mnt/data/VOID%20(1).png" alt="Game 2">
+        </div>
+        <div class="game-card" onclick="playGame('game3.html')">
+            <img src="/mnt/data/VOID%20(2).png" alt="Game 3">
+        </div>
+        <div class="game-card" onclick="playGame('game4.html')">
+            <img src="/mnt/data/VOID.png" alt="Game 4">
+        </div>
+        <div class="game-card" onclick="playGame('game5.html')">
+            <img src="/mnt/data/VOID%20(1).png" alt="Game 5">
+        </div>
+        <div class="game-card" onclick="playGame('game6.html')">
+            <img src="/mnt/data/VOID%20(2).png" alt="Game 6">
+        </div>
+        <div class="game-card" onclick="playGame('game7.html')">
+            <img src="/mnt/data/VOID.png" alt="Game 7">
+        </div>
+        <div class="game-card" onclick="playGame('game8.html')">
+            <img src="/mnt/data/VOID%20(1).png" alt="Game 8">
+        </div>
+    </div>
+</div>
+
+<div id="game-view">
+    <iframe id="game-frame" src=""></iframe>
+    <button onclick="backToGames()">Back to Games</button>
+</div>
+
+<script>
+    function playGame(gameUrl) {
+        document.getElementById('game-list').style.display = 'none';
+        document.getElementById('game-view').style.display = 'flex';
+        document.getElementById('game-frame').src = gameUrl;
+    }
+
+    function backToGames() {
+        document.getElementById('game-list').style.display = 'block';
+        document.getElementById('game-view').style.display = 'none';
+    }
+
+    function showAllGames() {
+        alert('Displaying all games (logic not implemented yet).');
+    }
+
+    function showHomePage() {
+        document.getElementById('game-list').style.display = 'block';
+        document.getElementById('game-view').style.display = 'none';
+    }
+</script>
+
+<footer>
+    <p>&copy; 2025 VOID Games. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
